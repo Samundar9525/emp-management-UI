@@ -1,0 +1,11 @@
+<div class="dashbord-container">
+  <app-dashboard-cards
+  [dataSource]="data"
+  (cardClickedEvent)="cardClicked($event)"
+  ></app-dashboard-cards>
+  <div class="total-emp" *ngIf="totalemployee>0">
+    <h2>Total Employee</h2>
+    <hr>
+    <h3>{{totalemployee}}</h3>
+  </div>
+</div>

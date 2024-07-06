@@ -1,0 +1,89 @@
+<div class="main-container">
+
+  <div class="form-container">
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <mat-card>
+        <div class="form-title">Employee Details</div>
+        <mat-card-header style="padding-left: 100px;">
+          <div mat-card-avatar class="avatar-container">
+            <img mat-card-avatar src="assets/profile-avatar.png" alt="Employee Avatar">
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="form-grid">
+            <div class="form-column">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Employee Number</mat-label>
+                <input matInput formControlName="emp_no" type="number">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Birth Date</mat-label>
+                <input matInput formControlName="birth_date" [matDatepicker]="birthDatePicker" type="text">
+                <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #birthDatePicker></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                  <mat-option value="M">Male</mat-option>
+                  <mat-option value="F">Female</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Hire Date</mat-label>
+                <input matInput formControlName="hire_date" [matDatepicker]="hireDatePicker" type="text">
+                <mat-datepicker-toggle matSuffix [for]="hireDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #hireDatePicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div class="form-column" style="margin-top: -156px;">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="first_name" type="text">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="last_name" type="text">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Department Name</mat-label>
+                <input matInput formControlName="dept_name" type="text">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Current Salary</mat-label>
+                <input matInput formControlName="current_salary" type="number">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" type="text">
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="button-container">
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </div>
+
+  <div class="right-section">
+  <div class="timeline">
+    <app-timeline [data]="timelineData"></app-timeline>
+  </div>
+  <div class="charts">
+    <app-charts *ngIf="hikesData && hikesData.dataSource"
+    [data]="hikesData"></app-charts>
+  </div>
+  </div>
+
+
+</div>

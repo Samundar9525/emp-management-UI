@@ -1,0 +1,17 @@
+<div class="card-container">
+  <div *ngFor="let data of dataSource" class="cards" (click)="cardClicked(data)">
+    <mat-card class="flex-item"
+              [style.height.px]="data.height"
+              [style.width.px]="data.width">
+      <mat-card-header>
+        <mat-card-title>{{data.count}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class=".al-centre">
+        {{data.content}}
+      </mat-card-content>
+    </mat-card>
+</div>
+</div>
+
+
+

@@ -1,0 +1,14 @@
+<div class="timeline">
+  <div class="entry" *ngFor="let entry of timelineData">
+    <div class="title">
+      <h3>{{ entry.time }}</h3>
+    </div>
+    <div class="body">
+      <p>{{ entry.title }}</p>
+      <ul>
+        <li> Experience : {{ entry.experience }} (years)</li>
+      </ul>
+
+    </div>
+  </div>
+</div>

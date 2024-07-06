@@ -1,0 +1,49 @@
+<div class="content-container">
+  <div>
+    <div class="back-button">
+      <mat-icon (click)="this.router.navigate(['/department-dashboard'])">arrow_back</mat-icon>
+      <label>{{this.title}}</label>
+    </div>
+  </div>
+  <hr>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="emp_no">
+        <th mat-header-cell *matHeaderCellDef> Empployee Id. </th>
+        <td mat-cell *matCellDef="let element" (click)="onEmployeeRowClick(element.emp_no)" style="text-decoration: underline;color: blue;"> {{element.emp_no}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef> First name </th>
+        <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef> Last name </th>
+        <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="birth_date">
+        <th mat-header-cell *matHeaderCellDef> Birth date </th>
+        <td mat-cell *matCellDef="let element"> {{element.birth_date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hire_date">
+        <th mat-header-cell *matHeaderCellDef> Hire date </th>
+        <td mat-cell *matCellDef="let element"> {{element.hire_date}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+  </div>
+</div>
+
