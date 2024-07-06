@@ -1,6 +1,6 @@
 ## Snapshots:
 
-#1. Organization employee wise data
+#1. Department wise grouped number of employee data
 ![image](https://github.com/Samundar9525/emp-prototype-UI/assets/71628177/120701c3-ca0e-4655-b4cb-7fb7a869d6ec)
 
 #2. List of employee in one department 
