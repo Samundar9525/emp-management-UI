@@ -48,5 +48,12 @@ export class DashboardService {
     return this.http.get('/api/login/departments/'+`${empNo}/`);
   }
 
+  postCreateEmployee (empData: any): Observable<any>{
+    return this.http.post('/api/create-employee/',empData);
+  }
+
+  getEmployeeNumber(): Observable<any> {
+    return this.http.get('/api/get-emp-no');
+  }
 }
 

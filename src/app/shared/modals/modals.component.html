@@ -1,0 +1,103 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <div class="dialog-header-text" mat-dialog-title>
+      {{ data?.headerTitle }}
+    </div>
+    <div class="dialog-close">
+      <mat-icon mat-dialog-close class="close-icon">close</mat-icon>
+    </div>
+  </div>
+
+  <div class="dialog-body">
+    <!-- Confirmation dialog -->
+    <ng-container *ngIf="data?.isConfiramtion">
+      <mat-dialog-content class="mat-typography">
+        <p>{{ data?.dialogMessage }}</p>
+      </mat-dialog-content>
+    </ng-container>
+
+    <!-- Comment dialog -->
+    <ng-container *ngIf="data?.isComment">
+      <form [formGroup]="commentForm" name="comment">
+        <mat-form-field class="full-width">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="Title" name="title" />
+          <mat-error
+            *ngIf="commentForm?.controls?.['Title']?.errors?.['required']"
+          >
+            Title is Required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Comments</mat-label>
+          <input matInput formControlName="Comment" name="comments" />
+        </mat-form-field>
+      </form>
+    </ng-container>
+  </div>
+
+
+<!-- crate employee form  -->
+ <ng-container *ngIf="data?.isAddEmployee">
+  <form [formGroup]="employeeForm">
+    <div class="disp-flex">
+      <mat-form-field>
+        <mat-label>Employee Number</mat-label>
+        <input matInput formControlName="emp_no" readonly>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Hire Date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="hire_date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+   <div class="disp-flex" >
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="first_name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="last_name" required>
+    </mat-form-field>
+   </div>
+
+   <div class="disp-flex">
+    <mat-form-field appearance="fill">
+      <mat-label>Birth Date</mat-label>
+      <input matInput [matDatepicker]="picker1" formControlName="birth_date">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender" required>
+        <mat-option value="M">Male</mat-option>
+        <mat-option value="F">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+   </div>
+  </form>
+ </ng-container>
+<!-- end create employee -->
+  <div class="dialog-footer">
+    <mat-dialog-actions align="end">
+      <button mat-raised-button color="warning" mat-dialog-close>
+        {{ data?.nText || "Cancel" }}
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+        (click)="dialogSubmit()"
+      >
+        {{ data?.pText || "Ok" }}
+      </button>
+    </mat-dialog-actions>
+  </div>
+</div>
