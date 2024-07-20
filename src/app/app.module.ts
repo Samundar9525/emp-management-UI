@@ -21,6 +21,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import { ChartsComponent } from './shared/charts/charts.component';
 import { TimelineComponent } from './shared/timeline/timeline.component';
+import { NavigationPanelComponent } from './shared/navigation-panel/navigation-panel.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { LoginComponent } from './shared/login/login.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +33,9 @@ import { TimelineComponent } from './shared/timeline/timeline.component';
     EmployeeDashboardComponent,
     EmployeeDetailComponent,
     ChartsComponent,
-    TimelineComponent
+    TimelineComponent,
+    NavigationPanelComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,9 @@ import { TimelineComponent } from './shared/timeline/timeline.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -43,5 +43,10 @@ export class DashboardService {
   getEmployeeTimelineDetails(empNo: string): Observable<any> {
     return this.http.get('/api/designation-timeline'+`/${empNo}/`);
   }
+
+  getdashboardDetails(empNo: string): Observable<any> {
+    return this.http.get('/api/login/departments/'+`${empNo}/`);
+  }
+
 }
 

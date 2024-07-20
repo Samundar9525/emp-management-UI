@@ -1,0 +1,21 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer mode="over" position="end" class="sidenav">
+    <mat-toolbar class="menu-right">
+      <button mat-icon-button (click)="drawer.close();drawerClose()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="sidenav-content">
+      <!-- Your content here -->
+      <p>This is the right-side drawer content.</p>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-container *ngIf="drawerOpen?drawer.open():drawer.close()">
+    </ng-container>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
