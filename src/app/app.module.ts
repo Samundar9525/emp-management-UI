@@ -25,6 +25,8 @@ import { NavigationPanelComponent } from './shared/navigation-panel/navigation-p
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { LoginComponent } from './shared/login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ManageEmployeeComponent } from './manage-employee/manage-employee.component';
+import { ModalsComponent } from './shared/modals/modals.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     ChartsComponent,
     TimelineComponent,
     NavigationPanelComponent,
-    LoginComponent
+    LoginComponent,
+    ManageEmployeeComponent,
+    ModalsComponent
   ],
   imports: [
     BrowserModule,
