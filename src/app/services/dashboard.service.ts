@@ -48,20 +48,5 @@ export class DashboardService {
     return this.http.get('/api/login/departments/'+`${empNo}/`);
   }
 
-  getEmployeeNumber(): Observable<any> {
-    return this.http.get('/api/get-emp-no');
-  }
-
-  postCreateEmployee (empData: any): Observable<any>{
-    return this.http.post('/api/create-employee/',empData);
-  }
-
-  updateCreateEmployee (empno:any, empData: any): Observable<any>{
-    return this.http.put('/api/update-employee/'+`${empno}/`,empData);
-  }
-
-  deleteEmployee(empNo:any){
-    return this.http.delete('/api/delete-employee/'+`${empNo}/`);
-  }
 }
 
