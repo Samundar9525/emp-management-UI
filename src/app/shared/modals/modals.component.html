@@ -37,8 +37,59 @@
   </div>
 
 
-<!-- crate employee form  -->
- <ng-container *ngIf="data?.isAddEmployee">
+<!-- create employee form  -->
+ <ng-container *ngIf="data?.isUpdateEmployee">
+  <form [formGroup]="employeeForm">
+    <div class="disp-flex">
+      <mat-form-field>
+        <mat-icon matSuffix>search</mat-icon>
+        <mat-label>Employee Number</mat-label>
+        <input matInput formControlName="emp_no" (keyup.enter)="fetchEmployeeData($event)">
+        <mat-hint class="emp-notify">*Press Enter to fetch Employee Details</mat-hint>
+      </mat-form-field>
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Hire Date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="hire_date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field> -->
+    </div>
+   <div class="disp-flex" >
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="first_name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="last_name" required>
+    </mat-form-field>
+   </div>
+
+   <div class="disp-flex">
+    <mat-form-field appearance="fill">
+      <mat-label>Birth Date</mat-label>
+      <input matInput [matDatepicker]="picker1" formControlName="birth_date">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender" required>
+        <mat-option value="M">Male</mat-option>
+        <mat-option value="F">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+   </div>
+  </form>
+ </ng-container>
+<!-- end create employee -->
+
+
+<!-- Add employee form  -->
+<ng-container *ngIf="data?.isAddEmployee">
   <form [formGroup]="employeeForm">
     <div class="disp-flex">
       <mat-form-field>
@@ -83,7 +134,38 @@
    </div>
   </form>
  </ng-container>
-<!-- end create employee -->
+<!-- end Add employee -->
+
+
+<!-- Delete employee form  -->
+<ng-container *ngIf="data?.isDeleteEmployee">
+  <form [formGroup]="employeeForm">
+    <div class="disp-flex">
+      <mat-form-field>
+        <mat-label>Employee Number</mat-label>
+        <input matInput formControlName="emp_no" (keyup.enter)="fetchEmployeeData($event)">
+        <mat-hint class="emp-notify">*Press Enter to fetch Employee Details</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="disp-flex" >
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="first_name" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="last_name" required>
+      </mat-form-field>
+     </div>
+  </form>
+ </ng-container>
+<!-- end Delete employee -->
+
+
+
+
+
   <div class="dialog-footer">
     <mat-dialog-actions align="end">
       <button mat-raised-button color="warning" mat-dialog-close>

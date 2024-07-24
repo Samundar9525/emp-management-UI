@@ -47,7 +47,58 @@ constructor(public dialog: MatDialog,private service:DashboardService){
         });
       }
     })
+  }
 
 
+
+  updateEmployeeDetail(){
+        this.dialog
+        .open(ModalsComponent, {
+          panelClass: ['form-body', 'wd40'],
+          data: {
+            isUpdateEmployee:true,
+            headerTitle: 'Update Employee Details',
+            pText: 'Update',
+            singleColumn: true,
+            contents:{
+              first_name:'',
+              last_name:'',
+              hire_date:'',
+              birth_date:'',
+              gender:''
+            }
+          },
+        })
+        .afterClosed()
+        .subscribe((res) => {
+         if (res){
+          console.log(res)
+          this.service.updateCreateEmployee(res.id,res.data).subscribe(res=>{
+            console.log('data updated')
+          })
+         }
+        });
+  }
+
+
+  deleteEmployeeDetail(){
+    this.dialog
+    .open(ModalsComponent, {
+      panelClass: ['form-body', 'wd40'],
+      data: {
+        isDeleteEmployee:true,
+        headerTitle: 'Delete Employee Details',
+        pText: 'Delete',
+        singleColumn: true,
+      },
+    })
+    .afterClosed()
+    .subscribe((res) => {
+     if (res){
+      this.service.deleteEmployee(res.id).subscribe(res=>{
+        console.log('data deleted')
+      })
+     }
+    });
   }
 }
