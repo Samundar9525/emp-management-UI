@@ -33,7 +33,6 @@ export class LoginComponent {
       this.service.userLogin(this.loginForm.value).subscribe(res=>{
         if (res){
           this.dialogRef.close();
-          console.log(res);
           this.service.userLogged.next(res);
         }
       })

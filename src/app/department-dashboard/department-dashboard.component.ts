@@ -11,11 +11,19 @@ import { LoginService } from '../services/login.service';
 export class DepartmentDashboardComponent {
   data:any = []
   totalemployee = 0
+  isHR:boolean = false;
 
   constructor(private dashboardServices:DashboardService, private router: Router,private loginService:LoginService){
     this.loginService.userLogged.subscribe((res:any)=>{
       this.totalemployee = 0;
       if(res != 'Login'){
+        if(res.emp_no){
+          this.dashboardServices.getEmployeeDepartment(res?.emp_no).subscribe((resp:any)=>{
+            if(resp?.department_name === 'Human Resources'){
+              this.isHR = true;
+            }
+          })
+        }
         this.dashboardServices.getdashboardDetails(res?.emp_no).subscribe((dashDetails:any)=>{
           this.data = dashDetails.map((re:any)=>{
             this.totalemployee += re.total_employees;
