@@ -41,7 +41,6 @@ constructor(public dialog: MatDialog,private service:DashboardService){
          if (res){
           console.log(res)
           this.service.postCreateEmployee(res).subscribe(res=>{
-            console.log(res,'--->')
           })
          }
         });
